@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.shoppi.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        >
+        <action
+            android:id="@+id/action_home_to_product_detail"
+            app:destination="@id/navigation_product_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.example.shoppi.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category"
+        />
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.example.shoppi.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"
+        />
+    <fragment
+        android:id="@+id/navigation_product_detail"
+        android:name="com.example.shoppi.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail"
+        />
+</navigation>
