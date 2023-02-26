@@ -1,9 +1,10 @@
-package com.example.shoppi
+package com.example.shoppi.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.shoppi.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
