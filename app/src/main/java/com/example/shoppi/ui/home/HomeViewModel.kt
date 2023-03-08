@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.shoppi.model.Banner
 import com.example.shoppi.model.Title
-import com.example.shoppi.repository.HomeRepository
+import com.example.shoppi.repository.home.HomeRepository
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
