@@ -10,4 +10,6 @@
     <string name="unit_discount_rate">%d%%</string>
     <string name="unit_discount_currency">%s원</string>
     <string name="label_category_new">NEW</string>
+    <string name="label_category_n">N</string>
+    <string name="description_category_thumbnail">카테고리 썸네일</string>
 </resources>
