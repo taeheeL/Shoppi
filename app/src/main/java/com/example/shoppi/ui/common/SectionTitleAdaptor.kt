@@ -8,23 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppi.databinding.ItemTitleBinding
 import com.example.shoppi.model.Title
 
-class CategorySectionTitleAdaptor :
-    ListAdapter<Title, CategorySectionTitleAdaptor.CategorySectionTitleViewHolder>(TitleDiffCallback()) {
+class SectionTitleAdaptor :
+    ListAdapter<Title, SectionTitleAdaptor.SectionTitleViewHolder>(TitleDiffCallback()) {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategorySectionTitleViewHolder {
+    ): SectionTitleViewHolder {
         val binding = ItemTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CategorySectionTitleViewHolder(binding)
+        return SectionTitleViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategorySectionTitleViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SectionTitleViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class CategorySectionTitleViewHolder(private val binding: ItemTitleBinding) :
+    class SectionTitleViewHolder(private val binding: ItemTitleBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(title: Title) {

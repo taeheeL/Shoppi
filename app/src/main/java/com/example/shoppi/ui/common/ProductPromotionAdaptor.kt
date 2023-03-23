@@ -5,26 +5,28 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppi.databinding.ItemCategoryPromotionBinding
+import com.example.shoppi.databinding.ItemProductPromotionBinding
 import com.example.shoppi.model.Product
+import com.example.shoppi.ui.common.ProductClickListener
 
-class CategoryPromotionAdaptor :
-    ListAdapter<Product, CategoryPromotionAdaptor.CategoryPromotionViewHolder>(ProductDiffCallback()) {
+class ProductPromotionAdaptor(private val clickListener: ProductClickListener) :
+    ListAdapter<Product, ProductPromotionAdaptor.ProductPromotionViewHolder>(ProductDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryPromotionViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductPromotionViewHolder {
         val binding =
-            ItemCategoryPromotionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CategoryPromotionViewHolder(binding)
+            ItemProductPromotionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ProductPromotionViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoryPromotionViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductPromotionViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class CategoryPromotionViewHolder(private val binding: ItemCategoryPromotionBinding) :
+    inner class ProductPromotionViewHolder(private val binding: ItemProductPromotionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(product: Product) {
+            binding.clickListener = clickListener
             binding.product = product
             binding.executePendingBindings()
         }
