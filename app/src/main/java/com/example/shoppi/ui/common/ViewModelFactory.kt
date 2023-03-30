@@ -15,6 +15,7 @@ import com.example.shoppi.repository.home.HomeAssetDataSource
 import com.example.shoppi.repository.home.HomeRepository
 import com.example.shoppi.repository.productdetail.ProductDetailRemoteDataSource
 import com.example.shoppi.repository.productdetail.ProductDetailRepository
+import com.example.shoppi.ui.cart.CartViewModel
 import com.example.shoppi.ui.category.CategoryViewModel
 import com.example.shoppi.ui.home.HomeViewModel
 import com.example.shoppi.ui.productdetail.ProductDetailViewModel
@@ -38,7 +39,10 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
             }
             modelClass.isAssignableFrom(ProductDetailViewModel::class.java) -> {
                 val repository = ProductDetailRepository(ProductDetailRemoteDataSource(ServiceLocator.provideApiClient()))
-                ProductDetailViewModel(repository) as T
+                ProductDetailViewModel(repository, ServiceLocator.provideCartRepository(context)) as T
+            }
+            modelClass.isAssignableFrom(CartViewModel::class.java) -> {
+                CartViewModel(ServiceLocator.provideCartRepository(context)) as T
             }
             else -> {
                 throw java.lang.IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")
